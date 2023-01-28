@@ -1,0 +1,25 @@
+.button {
+	border: 2px solid $dark-blue;
+	border-radius: 100px;
+	position: relative;
+	overflow: hidden;
+
+	&__current-element {
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 80px;
+		top: 0;
+		background-color: $dark-blue;
+		border-radius: 100px;
+		left: 0%;
+		transition: left 300ms ease-in-out, width 300ms ease-in-out;
+	}
+
+	&__wrapper {
+		display: flex;
+		gap: 32px;
+		margin: 0.25rem 1rem;
+		position: relative;
+	}
+}

@@ -1,0 +1,26 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Ubuntu', sans-serif;
+	list-style: none;
+	text-decoration: none;
+}
+
+::-webkit-scrollbar {
+	background-color: $white;
+	width: 0.5rem;
+
+	&:horizontal {
+		height: 0.5rem;
+	}
+}
+
+::-webkit-scrollbar-thumb {
+	background: $scroller-grey;
+	border-radius: 100px;
+}
+
+.container {
+	max-width: 77.5rem;
+	padding: 0rem 2rem;
+}

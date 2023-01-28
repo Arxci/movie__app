@@ -1,0 +1,11 @@
+@import './variables';
+@import './animations';
+@import './globals';
+@import '../components//header/header';
+@import '../app';
+@import '../pages/home/home';
+@import '../components/homePageBanner/homePageBanner';
+@import '../components/homePageTrending/homePageTrending';
+@import '../components/button/button';
+@import '../components/button/buttonElement/buttonElements';
+@import '../components/movieCard/movieCard';

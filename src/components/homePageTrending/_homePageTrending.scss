@@ -1,0 +1,50 @@
+.trending {
+	height: max-content;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__wrapper {
+		width: stretch;
+		margin: 2.7rem 0rem;
+		background-image: url('https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg');
+		background-position: 50% 150px;
+		background-repeat: no-repeat;
+		position: relative;
+
+		&::after {
+			content: '';
+			width: 40px;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #fff);
+		}
+	}
+
+	&__title {
+		margin-left: 0.7rem;
+		display: flex;
+		align-items: center;
+		gap: 20px;
+
+		h1 {
+			font-size: 1.5rem;
+		}
+	}
+
+	&__scroller {
+		display: flex;
+		margin-left: 0.7rem;
+		margin-right: -2rem;
+		padding-right: 2rem;
+		gap: 20px;
+		min-width: stretch;
+		overflow-x: auto;
+		scroll-behavior: smooth;
+		margin-top: 2rem;
+		padding-bottom: 0.7rem;
+		position: relative;
+	}
+}

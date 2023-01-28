@@ -1,0 +1,136 @@
+.banner {
+	height: max-content;
+}
+
+.welcome__wrapper,
+.top-rated__wrapper {
+	margin: auto;
+	min-height: 300px;
+	height: calc(100vh / 2.5);
+	max-height: 360px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	display: flex;
+	flex-direction: column;
+}
+
+.welcome {
+	&__wrapper {
+		background-image: linear-gradient(
+				to right,
+				rgba($dark-blue, 0.8) 0%,
+				rgba($dark-blue, 0) 100%
+			),
+			url('https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/r2NcIZ1FPMlxCty3vRITVTgGNVS.jpg');
+	}
+
+	&__text,
+	&__search {
+		margin: 0rem 0.7rem;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__text {
+		color: $font-light;
+		margin-top: 2.7rem;
+		justify-content: flex-end;
+		flex: 1;
+
+		h1 {
+			font-size: 3rem;
+		}
+		h4 {
+			font-size: 1.5rem;
+		}
+	}
+
+	&__search {
+		flex: 1;
+		justify-content: center;
+		margin-bottom: 2.7rem;
+
+		&__wrapper {
+			background-color: $white;
+			border-radius: 100px;
+			overflow: hidden;
+			position: relative;
+		}
+
+		&__input {
+			height: 1.5rem;
+			margin: 0.6rem;
+			outline: none;
+			border: none;
+			width: stretch;
+			font-size: 18px;
+			color: $dark-grey;
+
+			&::placeholder {
+				font-size: 18px;
+				color: $dark-grey;
+			}
+		}
+
+		&__button {
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			border-radius: 100px;
+			height: stretch;
+			width: 6rem;
+			border: none;
+			outline: none;
+			background: linear-gradient(to right, $light-green, $light-blue);
+			color: $white;
+			font-size: 1rem;
+			font-weight: 1000;
+			cursor: pointer;
+		}
+	}
+}
+
+.top-rated {
+	&__wrapper {
+		justify-content: center;
+		background-image: linear-gradient(
+				to right,
+				rgba(45, 28, 111, 0.5) 0%,
+				rgba(45, 28, 111, 0.5) 100%
+			),
+			url('https://image.tmdb.org/t/p/w1920_and_h600_multi_faces/rGbRnRvkmrSub07ty89Vnlsh6UX.jpg');
+	}
+
+	&__text {
+		margin: 2.7rem 0.7rem;
+		display: flex;
+		flex-direction: column;
+		color: $font-light;
+
+		h1 {
+			font-size: 3rem;
+		}
+	}
+
+	&__button {
+		margin: 2.7rem 0.7rem;
+		width: 10rem;
+		height: 3rem;
+		border-radius: 100px;
+		background: none;
+		border: 2px solid $white;
+		color: $font-light;
+		font-weight: bold;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+		cursor: pointer;
+
+		i {
+			font-size: 1rem;
+		}
+	}
+}

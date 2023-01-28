@@ -1,0 +1,8 @@
+.app {
+	background-color: $white;
+	min-height: 100vh;
+
+	&__pages {
+		min-height: calc(100vh - $header__height);
+	}
+}

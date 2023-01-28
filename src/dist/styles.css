@@ -1,0 +1,319 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Ubuntu", sans-serif;
+  list-style: none;
+  text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  background-color: #ffffff;
+  width: 0.5rem;
+}
+::-webkit-scrollbar:horizontal {
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dbdbdb;
+  border-radius: 100px;
+}
+
+.container {
+  max-width: 77.5rem;
+  padding: 0rem 2rem;
+}
+
+.header {
+  background-color: rgb(3, 37, 65);
+  z-index: 999;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  height: 4rem;
+}
+.header__nav {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: stretch;
+  margin: auto;
+}
+
+.nav__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  margin: 0rem 0.7rem;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: stretch;
+}
+.nav__wrapper h1 {
+  font-size: 2rem;
+}
+
+.nav__list {
+  display: flex;
+  gap: 20px;
+}
+
+.nav__link {
+  color: #ffffff;
+}
+
+.app {
+  background-color: #ffffff;
+  min-height: 100vh;
+}
+.app__pages {
+  min-height: calc(100vh - 4rem);
+}
+
+.banner {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+}
+
+.welcome__wrapper,
+.top-rated__wrapper {
+  margin: auto;
+  min-height: 300px;
+  height: 40vh;
+  max-height: 360px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome__wrapper {
+  background-image: linear-gradient(to right, rgba(3, 37, 65, 0.8) 0%, rgba(3, 37, 65, 0) 100%), url("https://www.themoviedb.org/t/p/w1920_and_h600_multi_faces_filter(duotone,00192f,00baff)/r2NcIZ1FPMlxCty3vRITVTgGNVS.jpg");
+}
+.welcome__text, .welcome__search {
+  margin: 0rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+}
+.welcome__text {
+  color: #ffffff;
+  margin-top: 2.7rem;
+  justify-content: flex-end;
+  flex: 1;
+}
+.welcome__text h1 {
+  font-size: 3rem;
+}
+.welcome__text h4 {
+  font-size: 1.5rem;
+}
+.welcome__search {
+  flex: 1;
+  justify-content: center;
+  margin-bottom: 2.7rem;
+}
+.welcome__search__wrapper {
+  background-color: #ffffff;
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+.welcome__search__input {
+  height: 1.5rem;
+  margin: 0.6rem;
+  outline: none;
+  border: none;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  font-size: 18px;
+  color: #c8c8c8;
+}
+.welcome__search__input::-moz-placeholder {
+  font-size: 18px;
+  color: #c8c8c8;
+}
+.welcome__search__input:-ms-input-placeholder {
+  font-size: 18px;
+  color: #c8c8c8;
+}
+.welcome__search__input::placeholder {
+  font-size: 18px;
+  color: #c8c8c8;
+}
+.welcome__search__button {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  border-radius: 100px;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: stretch;
+  width: 6rem;
+  border: none;
+  outline: none;
+  background: linear-gradient(to right, #1ed5a9, rgb(1, 180, 228));
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 1000;
+  cursor: pointer;
+}
+
+.top-rated__wrapper {
+  justify-content: center;
+  background-image: linear-gradient(to right, rgba(45, 28, 111, 0.5) 0%, rgba(45, 28, 111, 0.5) 100%), url("https://image.tmdb.org/t/p/w1920_and_h600_multi_faces/rGbRnRvkmrSub07ty89Vnlsh6UX.jpg");
+}
+.top-rated__text {
+  margin: 2.7rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+}
+.top-rated__text h1 {
+  font-size: 3rem;
+}
+.top-rated__button {
+  margin: 2.7rem 0.7rem;
+  width: 10rem;
+  height: 3rem;
+  border-radius: 100px;
+  background: none;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.top-rated__button i {
+  font-size: 1rem;
+}
+
+.trending {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trending__wrapper {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  margin: 2.7rem 0rem;
+  background-image: url("https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg");
+  background-position: 50% 150px;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.trending__wrapper::after {
+  content: "";
+  width: 40px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #fff);
+}
+.trending__title {
+  margin-left: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.trending__title h1 {
+  font-size: 1.5rem;
+}
+.trending__scroller {
+  display: flex;
+  margin-left: 0.7rem;
+  margin-right: -2rem;
+  padding-right: 2rem;
+  gap: 20px;
+  min-width: -webkit-fill-available;
+  min-width: -moz-available;
+  min-width: stretch;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin-top: 2rem;
+  padding-bottom: 0.7rem;
+  position: relative;
+}
+
+.button {
+  border: 2px solid rgb(3, 37, 65);
+  border-radius: 100px;
+  position: relative;
+  overflow: hidden;
+}
+.button__current-element {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 80px;
+  top: 0;
+  background-color: rgb(3, 37, 65);
+  border-radius: 100px;
+  left: 0%;
+  transition: left 300ms ease-in-out, width 300ms ease-in-out;
+}
+.button__wrapper {
+  display: flex;
+  gap: 32px;
+  margin: 0.25rem 1rem;
+  position: relative;
+}
+
+.button__element {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  z-index: 2;
+  font-size: 700;
+  transition: color 200ms ease-in-out;
+  cursor: pointer;
+  text-align: center;
+}
+.button__element.active {
+  background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 150px;
+}
+.card__upper {
+  height: 250px;
+  background-color: green;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.card__upper > img {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: stretch;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card__date {
+  color: #c8c8c8;
+}/*# sourceMappingURL=styles.css.map */

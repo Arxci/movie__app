@@ -1,0 +1,26 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	min-width: 150px;
+
+	&__upper {
+		height: 250px;
+		background-color: green;
+		border-radius: 15px;
+		overflow: hidden;
+		cursor: pointer;
+
+		> img {
+			width: stretch;
+			height: stretch;
+			object-fit: cover;
+		}
+	}
+
+	&__lower {
+	}
+
+	&__date {
+		color: $dark-grey;
+	}
+}

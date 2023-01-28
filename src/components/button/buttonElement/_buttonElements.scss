@@ -1,0 +1,15 @@
+.button__element {
+	width: max-content;
+	z-index: 2;
+	font-size: 700;
+	transition: color 200ms ease-in-out;
+	cursor: pointer;
+	text-align: center;
+
+	&.active {
+		background: linear-gradient(to right, $lighter-green 0%, $light-green 100%);
+		background-clip: text;
+
+		color: transparent;
+	}
+}
