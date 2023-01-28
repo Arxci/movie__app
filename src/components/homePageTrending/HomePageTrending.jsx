@@ -3,6 +3,7 @@ import useDailyTrendingMovies from '../../hooks/useDailyTrendingMovies'
 import useWeeklyTrendingMovies from '../../hooks/useWeeklyTrendingMovies'
 import TabButton from '../button/TabButton'
 import MovieCard from '../movieCard/MovieCard'
+import { motion } from 'framer-motion'
 
 const HomePageTrending = () => {
 	const [currentTab, setCurrentTab] = useState(0)
@@ -46,11 +47,11 @@ const HomePageTrending = () => {
 						setCurrentState={setCurrentTab}
 					/>
 				</div>
-				<div className="trending__scroller">
+				<motion.div layout className="trending__scroller">
 					{movies.current.map((movie) => (
-						<MovieCard kay={movie.id} movie={movie} />
+						<MovieCard key={movie.id} movie={movie} />
 					))}
-				</div>
+				</motion.div>
 			</section>
 		</div>
 	)

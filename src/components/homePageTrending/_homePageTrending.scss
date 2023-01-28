@@ -19,7 +19,11 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			background-image: linear-gradient(to right, rgba(255, 255, 255, 0), #fff);
+			background-image: linear-gradient(
+				to right,
+				rgba(255, 255, 255, 0),
+				$white
+			);
 		}
 	}
 
@@ -45,6 +49,7 @@
 		scroll-behavior: smooth;
 		margin-top: 2rem;
 		padding-bottom: 0.7rem;
+		overflow-y: hidden;
 		position: relative;
 	}
 }
