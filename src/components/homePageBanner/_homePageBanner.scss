@@ -40,9 +40,17 @@
 
 		h1 {
 			font-size: 3rem;
+
+			@include breakpoint-down(medium) {
+				font-size: 2rem;
+			}
 		}
 		h4 {
 			font-size: 1.5rem;
+
+			@include breakpoint-down(medium) {
+				font-size: 1rem;
+			}
 		}
 	}
 
@@ -67,9 +75,17 @@
 			font-size: 18px;
 			color: $dark-grey;
 
+			@include breakpoint-down(medium) {
+				font-size: 14px;
+			}
+
 			&::placeholder {
 				font-size: 18px;
 				color: $dark-grey;
+
+				@include breakpoint-down(medium) {
+					font-size: 14px;
+				}
 			}
 		}
 
@@ -111,6 +127,10 @@
 
 		h1 {
 			font-size: 3rem;
+
+			@include breakpoint-down(medium) {
+				font-size: 2rem;
+			}
 		}
 	}
 
@@ -128,6 +148,14 @@
 		justify-content: center;
 		gap: 10px;
 		cursor: pointer;
+
+		h4 {
+			font-size: 1rem;
+
+			@include breakpoint-down(medium) {
+				font-size: 0.75rem;
+			}
+		}
 
 		i {
 			font-size: 1rem;

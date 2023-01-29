@@ -1,19 +1,33 @@
 .button {
-	border: 2px solid $dark-blue;
+	border: 1px solid $dark-blue;
 	border-radius: 100px;
 	position: relative;
 	overflow: hidden;
+
+	&.secondary {
+		border: 1px solid $light-green;
+	}
 
 	&__current-element {
 		content: '';
 		position: absolute;
 		height: 100%;
-		width: 80px;
+		width: 0;
 		top: 0;
 		background-color: $dark-blue;
 		border-radius: 100px;
 		left: 0%;
 		transition: left 300ms ease-in-out, width 300ms ease-in-out;
+		border: 1px solid $dark-blue;
+
+		&.secondary {
+			border: 1px solid $light-green;
+			background: linear-gradient(
+				to right,
+				$lighter-green 0%,
+				$light-green 100%
+			);
+		}
 	}
 
 	&__wrapper {

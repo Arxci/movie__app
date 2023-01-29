@@ -13,8 +13,13 @@ const HomePageBanner = () => {
 				<div className="welcome__search">
 					<div className="welcome__search__wrapper">
 						<input
-							className="welcome__search__input"
+							className="welcome__search__input hide-for-mobile"
 							placeholder="Search for a movie, tv show, person..."
+							type="text"
+						/>
+						<input
+							className="welcome__search__input hide-for-desktop"
+							placeholder="Search..."
 							type="text"
 						/>
 						<button className="welcome__search__button">Search</button>
@@ -26,7 +31,8 @@ const HomePageBanner = () => {
 					<h1>Top Rated Movies</h1>
 				</div>
 				<button className="top-rated__button">
-					Check It Out <i className="fa-solid fa-arrow-right"></i>
+					<h4>Check It Out</h4>
+					<i className="fa-solid fa-arrow-right"></i>
 				</button>
 			</section>
 		</div>

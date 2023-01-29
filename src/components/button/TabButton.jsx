@@ -1,7 +1,7 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import TabButtonElement from './buttonElement/TabButtonElement'
 
-const TabButton = ({ numOfElements, currentState, setCurrentState }) => {
+const TabButton = ({ numOfElements, currentState, setCurrentState, color }) => {
 	const currentButton = useRef()
 	const buttonContainer = useRef()
 
@@ -28,9 +28,23 @@ const TabButton = ({ numOfElements, currentState, setCurrentState }) => {
 		}
 	}
 
+	useEffect(() => {
+		const initialElement = buttonContainer.current.children[0]
+
+		const initialWidth = initialElement.offsetWidth
+
+		// prettier-ignore
+		currentButton.current.style.width = initialWidth + 32 + 'px'
+		currentButton.current.style.left = 0
+		setCurrentState(0)
+	}, [currentButton, buttonContainer, setCurrentState])
+
 	return (
-		<div className="button">
-			<span ref={currentButton} className="button__current-element" />
+		<div className={'button ' + color}>
+			<span
+				ref={currentButton}
+				className={'button__current-element ' + color}
+			/>
 			<div ref={buttonContainer} className="button__wrapper">
 				{numOfElements &&
 					numOfElements.map((element) => (
@@ -39,6 +53,7 @@ const TabButton = ({ numOfElements, currentState, setCurrentState }) => {
 							button={element}
 							isActive={currentState === element.key}
 							onPressed={UpdateCurrentButton}
+							color={color}
 						/>
 					))}
 			</div>

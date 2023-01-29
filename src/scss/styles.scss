@@ -1,5 +1,6 @@
 @import './variables';
 @import './animations';
+@import './mixins';
 @import './globals';
 @import '../components//header/header';
 @import '../app';
@@ -9,3 +10,7 @@
 @import '../components/button/button';
 @import '../components/button/buttonElement/buttonElements';
 @import '../components/movieCard/movieCard';
+@import '../components/rating/rating';
+@import '../components/homePagePopular/homePagePopular';
+@import '../components/homePageFree/homePageFree';
+@import '../components/footer/footer';

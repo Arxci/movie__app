@@ -9,10 +9,7 @@
 ::-webkit-scrollbar {
 	background-color: $white;
 	width: 0.5rem;
-
-	&:horizontal {
-		height: 0.5rem;
-	}
+	height: 0.5rem;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -23,4 +20,22 @@
 .container {
 	max-width: 77.5rem;
 	padding: 0rem 2rem;
+}
+
+.hide-for-mobile {
+	@include breakpoint-down(medium) {
+		display: none;
+		> * {
+			display: none;
+		}
+	}
+}
+
+.hide-for-desktop {
+	@include breakpoint-up(large) {
+		display: none;
+		> * {
+			display: none;
+		}
+	}
 }

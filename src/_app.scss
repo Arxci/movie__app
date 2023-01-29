@@ -5,4 +5,9 @@
 	&__pages {
 		min-height: calc(100vh - $header__height);
 	}
+
+	&__header {
+		background-color: $dark-blue;
+		height: $header__height;
+	}
 }

@@ -1,4 +1,4 @@
-.trending {
+.popular {
 	height: max-content;
 
 	display: flex;
@@ -6,12 +6,19 @@
 	justify-content: center;
 
 	&__wrapper {
-		width: stretch;
-		margin: 2.7rem 0rem;
-		background-image: url('https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg');
-		background-position: 50% 150px;
+		min-height: 350px;
+		background-image: linear-gradient(
+				to right,
+				rgba($dark-blue, 0.75) 0%,
+				rgba($dark-blue, 0.75) 100%
+			),
+			url('https://image.tmdb.org/t/p/w1920_and_h427_multi_faces/zxfBtHz5UmSTfIEC4O4GngyjHwa.jpg');
+		background-position: center center;
+		background-size: cover;
 		background-repeat: no-repeat;
 		position: relative;
+		margin-bottom: 2.7rem;
+		width: stretch;
 
 		&::after {
 			content: '';
@@ -33,6 +40,8 @@
 		display: flex;
 		align-items: center;
 		gap: 20px;
+		color: $white;
+		margin-top: 2.7rem;
 
 		h1 {
 			font-size: 1.5rem;
@@ -49,6 +58,7 @@
 		overflow-x: auto;
 		scroll-behavior: smooth;
 		margin-top: 2rem;
+		padding-bottom: 1rem;
 		overflow-y: hidden;
 		height: 350px;
 		position: relative;

@@ -2,13 +2,16 @@
 	display: flex;
 	flex-direction: column;
 	min-width: 150px;
+	position: relative;
 
 	&__upper {
 		height: 250px;
 		background-color: green;
-		border-radius: 15px;
+		border-radius: 10px;
 		overflow: hidden;
 		cursor: pointer;
+
+		z-index: 1;
 
 		> img {
 			width: stretch;
@@ -17,10 +20,27 @@
 		}
 	}
 
+	&__rating {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		top: 225px;
+		left: 10px;
+		z-index: 1;
+	}
+
 	&__lower {
+		padding-top: 1.7rem;
+	}
+
+	&__name {
+		&.secondary {
+			color: $white;
+		}
 	}
 
 	&__date {
+		z-index: 1;
 		color: $dark-grey;
 	}
 }

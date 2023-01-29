@@ -3,10 +3,11 @@ import TabButton from '../button/TabButton'
 import MovieCard from '../movieCard/MovieCard'
 import { motion } from 'framer-motion'
 
-const fetchWeeklyTrendingMovies = async (setMovies, signal) => {
+const discoverMovie = async (setMovies, signal, discover) => {
 	const data = await fetch(
-		'//api.themoviedb.org/3/trending/all/week?api_key=' +
-			process.env.REACT_APP_API_KEY,
+		'//api.themoviedb.org/3/discover/movie?api_key=' +
+			process.env.REACT_APP_API_KEY +
+			discover,
 		{ signal }
 	)
 
@@ -15,31 +16,30 @@ const fetchWeeklyTrendingMovies = async (setMovies, signal) => {
 	setMovies(movies.results)
 }
 
-const fetchDailyTrendingMovies = async (setMovies, signal) => {
+const discoverTv = async (setMovies, signal, discover) => {
 	const data = await fetch(
-		'//api.themoviedb.org/3/trending/all/day?api_key=' +
-			process.env.REACT_APP_API_KEY,
+		'//api.themoviedb.org/3/discover/tv?api_key=' +
+			process.env.REACT_APP_API_KEY +
+			discover,
 		{ signal }
 	)
 
 	const movies = await data.json()
 
 	setMovies(movies.results)
-	console.log(movies.results)
 }
 
-const HomePageTrending = () => {
+const HomePageFree = () => {
 	const [currentTab, setCurrentTab] = useState(0)
 	const [movies, setMovies] = useState([])
-
 	const buttons = [
 		{
 			key: 0,
-			name: 'Today',
+			name: 'Movies',
 		},
 		{
 			key: 1,
-			name: 'This Week',
+			name: 'TV',
 		},
 	]
 
@@ -48,9 +48,17 @@ const HomePageTrending = () => {
 		const signal = controller.signal
 
 		if (currentTab === 0) {
-			fetchDailyTrendingMovies(setMovies, signal)
-		} else {
-			fetchWeeklyTrendingMovies(setMovies, signal)
+			discoverMovie(
+				setMovies,
+				signal,
+				'&watch_region=US&with_watch_monetization_types=free'
+			)
+		} else if (currentTab === 1) {
+			discoverTv(
+				setMovies,
+				signal,
+				'&watch_region=US&with_watch_monetization_types=free'
+			)
 		}
 
 		return () => {
@@ -59,10 +67,10 @@ const HomePageTrending = () => {
 	}, [currentTab, setMovies])
 
 	return (
-		<div className="trending">
-			<section className="trending__wrapper container">
-				<div className="trending__title">
-					<h1>Trending</h1>
+		<div className="free">
+			<section className="free__wrapper container">
+				<div className="free__title">
+					<h1>Free To Watch</h1>
 					<TabButton
 						numOfElements={buttons}
 						setCurrentState={setCurrentTab}
@@ -70,7 +78,7 @@ const HomePageTrending = () => {
 						color="primary"
 					/>
 				</div>
-				<motion.div className="trending__scroller">
+				<motion.div className="free__scroller">
 					{movies.map((movie) => (
 						<MovieCard key={movie.id} movie={movie} />
 					))}
@@ -80,4 +88,4 @@ const HomePageTrending = () => {
 	)
 }
 
-export default HomePageTrending
+export default HomePageFree

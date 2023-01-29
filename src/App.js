@@ -6,7 +6,10 @@ function App() {
 	return (
 		<div className="app">
 			<BrowserRouter>
-				<Header />
+				<div className="app__header">
+					<Header />
+				</div>
+
 				<div className="app__pages">
 					<Routes>
 						<Route path="/" element={<Home />} />

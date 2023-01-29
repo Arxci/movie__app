@@ -1,4 +1,4 @@
-.trending {
+.free {
 	height: max-content;
 
 	display: flex;
@@ -7,10 +7,7 @@
 
 	&__wrapper {
 		width: stretch;
-		margin: 2.7rem 0rem;
-		background-image: url('https://www.themoviedb.org/assets/2/v4/misc/trending-bg-39afc2a5f77e31d469b25c187814c0a2efef225494c038098d62317d923f8415.svg');
-		background-position: 50% 150px;
-		background-repeat: no-repeat;
+		margin-bottom: 2.7rem;
 		position: relative;
 
 		&::after {

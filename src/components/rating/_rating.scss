@@ -1,0 +1,96 @@
+.rating {
+	background-color: $black;
+	width: stretch;
+	height: stretch;
+	border-radius: 50%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: $white;
+	position: relative;
+	border: 2px solid $black;
+}
+
+.circle__wrapper {
+	position: absolute;
+	margin: 40px auto;
+	width: 40px;
+	height: 40px;
+	background: $black;
+	border-radius: 50%;
+
+	&.yellow {
+		background-color: rgb(255, 255, 0, 0.5);
+	}
+
+	&.green {
+		background-color: rgba(0, 128, 0, 0.5);
+	}
+
+	&.red {
+		background-color: rgba(255, 0, 0, 0.5);
+	}
+
+	&.default {
+		background-color: rgba(200, 200, 200, 0.4);
+	}
+}
+
+.circle__wrapper .circle .mask,
+.circle__wrapper .circle .fill {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	border-radius: 50%;
+}
+
+.mask .fill {
+	clip: rect(0px, 20px, 40px, 0px);
+
+	&.yellow {
+		background-color: yellow;
+	}
+
+	&.green {
+		background-color: green;
+	}
+
+	&.red {
+		background-color: red;
+	}
+
+	&.default {
+		background-color: blue;
+	}
+}
+
+.circle__wrapper .circle .mask {
+	clip: rect(0px, 40px, 40px, 20px);
+}
+
+.mask.full,
+.circle .fill {
+	transform: rotate(0deg);
+	transition: transform 2s cubic-bezier(0.05, 0.98, 0.48, 1);
+}
+
+.circle__wrapper .inside-circle {
+	width: 32px;
+	height: 32px;
+	border-radius: 50%;
+	background: $black;
+	margin-top: 4px;
+	margin-left: 4px;
+	position: absolute;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	h2 {
+		position: relative;
+		font-size: 1rem;
+		color: $white;
+	}
+}
