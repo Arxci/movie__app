@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/header/Header'
 import Home from './pages/home/Home'
+import PopularPeople from './pages/popularPeople/PopularPeople'
 
 function App() {
 	return (
@@ -13,6 +14,7 @@ function App() {
 				<div className="app__pages">
 					<Routes>
 						<Route path="/" element={<Home />} />
+						<Route path="/person" element={<PopularPeople />} />
 					</Routes>
 				</div>
 			</BrowserRouter>

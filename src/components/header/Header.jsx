@@ -42,7 +42,7 @@ const Header = () => {
 								</Link>
 							</li>
 							<li className="nav__item  hide-for-mobile">
-								<Link to="/">
+								<Link to="/person">
 									<h4 className="nav__link">People</h4>
 								</Link>
 							</li>

@@ -1,0 +1,59 @@
+.person {
+	width: calc(100% / 5 - 20px);
+	height: 325px;
+	border: 1px solid $light-grey;
+	box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+
+	@include breakpoint-down(medium) {
+		width: calc(100% / 3 - 20px);
+	}
+
+	@include breakpoint-down(small) {
+		width: calc(100% / 1 - 20px);
+		height: 400px;
+		max-width: 300px;
+	}
+
+	@include breakpoint-down(xsmall) {
+		height: 325px;
+	}
+
+	&__upper {
+		height: 250px;
+
+		@include breakpoint-down(small) {
+			height: 325px;
+		}
+
+		@include breakpoint-down(xsmall) {
+			height: 250px;
+		}
+	}
+
+	&__image {
+		width: stretch;
+		height: stretch;
+		object-fit: cover;
+		position: relative;
+		object-position: 50% 15%;
+	}
+
+	&__lower {
+		margin: 0.5rem;
+		display: flex;
+		justify-content: center;
+		height: calc(75px - 16px);
+		flex-direction: column;
+		gap: 5px;
+	}
+
+	&__name {
+		color: $black;
+		font-size: 1rem;
+	}
+
+	&__details {
+		font-weight: 100;
+		font-size: 0.75rem;
+	}
+}

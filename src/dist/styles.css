@@ -40,6 +40,61 @@
   }
 }
 
+.button {
+  border: 1px solid rgb(3, 37, 65);
+  border-radius: 100px;
+  position: relative;
+}
+.button.secondary {
+  border: 1px solid #1ed5a9;
+}
+.button__current-element {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 0;
+  top: 0;
+  background-color: rgb(3, 37, 65);
+  border-radius: 100px;
+  left: 0%;
+  transition: left 300ms ease-in-out, width 300ms ease-in-out;
+  border: 1px solid rgb(3, 37, 65);
+}
+.button__current-element.secondary {
+  border: 1px solid #1ed5a9;
+  background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
+}
+.button__wrapper {
+  display: flex;
+  gap: 32px;
+  margin: 0.25rem 1rem;
+  position: relative;
+}
+
+.button__element {
+  min-width: -webkit-max-content;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  z-index: 2;
+  font-size: 700;
+  transition: color 200ms ease-in-out;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+}
+.button__element.secondary {
+  color: #ffffff;
+}
+.button__element.active {
+  background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+.button__element.active.secondary {
+  color: rgb(3, 37, 65);
+}
+
 .header {
   z-index: 999;
   width: -webkit-fill-available;
@@ -335,6 +390,14 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  overflow-x: auto;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.trending__title::-webkit-scrollbar {
+  display: none;
 }
 .trending__title h1 {
   font-size: 1.5rem;
@@ -361,62 +424,6 @@
 }
 .trending__scroller::-webkit-scrollbar {
   display: none;
-}
-
-.button {
-  border: 1px solid rgb(3, 37, 65);
-  border-radius: 100px;
-  position: relative;
-  overflow: hidden;
-}
-.button.secondary {
-  border: 1px solid #1ed5a9;
-}
-.button__current-element {
-  content: "";
-  position: absolute;
-  height: 100%;
-  width: 0;
-  top: 0;
-  background-color: rgb(3, 37, 65);
-  border-radius: 100px;
-  left: 0%;
-  transition: left 300ms ease-in-out, width 300ms ease-in-out;
-  border: 1px solid rgb(3, 37, 65);
-}
-.button__current-element.secondary {
-  border: 1px solid #1ed5a9;
-  background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
-}
-.button__wrapper {
-  display: flex;
-  gap: 32px;
-  margin: 0.25rem 1rem;
-  position: relative;
-}
-
-.button__element {
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  z-index: 2;
-  font-size: 700;
-  transition: color 200ms ease-in-out;
-  cursor: pointer;
-  text-align: center;
-  font-weight: bold;
-}
-.button__element.secondary {
-  color: #ffffff;
-}
-.button__element.active {
-  background: linear-gradient(to right, #c0fecf 0%, #1ed5a9 100%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-}
-.button__element.active.secondary {
-  color: rgb(3, 37, 65);
 }
 
 .card {
@@ -590,6 +597,14 @@
   gap: 20px;
   color: #ffffff;
   margin-top: 2.7rem;
+  overflow-x: auto;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.popular__title::-webkit-scrollbar {
+  display: none;
 }
 .popular__title h1 {
   font-size: 1.5rem;
@@ -648,6 +663,14 @@
   display: flex;
   align-items: center;
   gap: 20px;
+  overflow-x: auto;
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.free__title::-webkit-scrollbar {
+  display: none;
 }
 .free__title h1 {
   font-size: 1.5rem;
@@ -674,4 +697,143 @@
 }
 .free__scroller::-webkit-scrollbar {
   display: none;
+}
+
+.people__wrapper {
+  margin: auto;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  min-height: calc(100vh - 4rem);
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+.people__container {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  flex: 1;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  height: 4rem;
+  margin: 1rem 0rem;
+  gap: 10px;
+}
+
+.pagination a {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(3, 37, 65);
+  color: rgb(3, 37, 65);
+  cursor: pointer;
+}
+@media (max-width: 25.947rem) {
+  .pagination a {
+    font-size: 14px;
+    padding: 7.5px;
+  }
+}
+
+.pagination__link {
+  font-weight: bold;
+  border: 1px solid rgb(3, 37, 65);
+}
+
+@media (max-width: 25.947rem) {
+  .previous__link,
+.next__link {
+    display: none;
+  }
+}
+
+.pagination__link--active a {
+  color: #ffffff;
+  background-color: rgb(3, 37, 65);
+  transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.pagination__link--disabled a {
+  color: rgb(198, 197, 202);
+  border: 1px solid rgb(198, 197, 202);
+  pointer-events: none;
+}
+
+.person {
+  width: calc(20% - 20px);
+  height: 325px;
+  border: 1px solid #e3e3e3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+@media (max-width: 69.9375rem) {
+  .person {
+    width: calc(33.3333333333% - 20px);
+  }
+}
+@media (max-width: 39.9375rem) {
+  .person {
+    width: calc(100% - 20px);
+    height: 400px;
+    max-width: 300px;
+  }
+}
+@media (max-width: 25.947rem) {
+  .person {
+    height: 325px;
+  }
+}
+.person__upper {
+  height: 250px;
+}
+@media (max-width: 39.9375rem) {
+  .person__upper {
+    height: 325px;
+  }
+}
+@media (max-width: 25.947rem) {
+  .person__upper {
+    height: 250px;
+  }
+}
+.person__image {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  width: stretch;
+  height: -webkit-fill-available;
+  height: -moz-available;
+  height: stretch;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: relative;
+  -o-object-position: 50% 15%;
+     object-position: 50% 15%;
+}
+.person__lower {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
+  height: 59px;
+  flex-direction: column;
+  gap: 5px;
+}
+.person__name {
+  color: #000000;
+  font-size: 1rem;
+}
+.person__details {
+  font-weight: 100;
+  font-size: 0.75rem;
 }/*# sourceMappingURL=styles.css.map */

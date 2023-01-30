@@ -1,0 +1,68 @@
+.people {
+	&__wrapper {
+		margin: auto;
+		width: stretch;
+		min-height: calc(100vh - $header__height);
+		display: flex;
+		justify-content: flex-end;
+		flex-direction: column;
+	}
+
+	&__container {
+		width: stretch;
+		flex: 1;
+		margin-top: 2rem;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 10px;
+	}
+}
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: stretch;
+	height: 4rem;
+	margin: 1rem 0rem;
+	gap: 10px;
+}
+
+.pagination a {
+	padding: 10px;
+	border-radius: 5px;
+	border: 1px solid $dark-blue;
+	color: $dark-blue;
+	cursor: pointer;
+
+	@include breakpoint-down(xsmall) {
+		font-size: 14px;
+		padding: 7.5px;
+	}
+}
+
+.pagination__link {
+	font-weight: bold;
+	border: 1px solid $dark-blue;
+}
+
+.previous__link,
+.next__link {
+	@include breakpoint-down(xsmall) {
+		display: none;
+	}
+}
+
+.pagination__link--active a {
+	color: $white;
+	background-color: $dark-blue;
+	transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+}
+
+.pagination__link--disabled a {
+	color: rgb(198, 197, 202);
+	border: 1px solid rgb(198, 197, 202);
+	pointer-events: none;
+}
