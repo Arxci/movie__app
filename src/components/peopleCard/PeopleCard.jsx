@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react'
+import React, { useMemo } from 'react'
 import useGetPersonImage from '../../hooks/useGetPersonImage'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 const PeopleCard = ({ person }) => {
 	const image = useGetPersonImage(person, 400)
-	const [details, setDetails] = useState(() => {
+	const details = useMemo(() => {
 		const maxNumOfCharacters = 30
 
 		var tempDetails = ''
@@ -27,7 +27,7 @@ const PeopleCard = ({ person }) => {
 		tempDetails = tempDetails + '...'
 
 		return tempDetails
-	})
+	}, [person])
 
 	const item = {
 		hidden: { opacity: 0, scale: 0.98 },
