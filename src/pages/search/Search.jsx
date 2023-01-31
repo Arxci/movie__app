@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react'
 import Dropdown from '../../components/filterPanel/dropdown/Dropdown'
 import FilterPanel from '../../components/filterPanel/FilterPanel'
 import SearchCard from '../../components/searchCard/SearchCard'
+import { motion } from 'framer-motion'
 
 const Search = ({ title, endpoint, genreId, languageId, popularityID }) => {
 	const [sortBy, setSortBy] = useState('Popularity Descending')
 	const [languages, setLanguages] = useState('None Selected')
 	const [genres, setGenres] = useState('None Selected')
 	const [filteredCards, setFilteredCards] = useState([])
+	const [currentPage, setCurrentPage] = useState(1)
+	const [maxPage, setMaxPage] = useState(1)
 
 	const filterItems = [
 		{
@@ -62,7 +65,7 @@ const Search = ({ title, endpoint, genreId, languageId, popularityID }) => {
 		},
 	]
 
-	const UpdateFilters = async () => {
+	const UpdateFilters = async (reset, newPage) => {
 		var l_ID = languageId.filter((language) => {
 			return language.name === languages
 		})[0].id
@@ -88,12 +91,21 @@ const Search = ({ title, endpoint, genreId, languageId, popularityID }) => {
 		}
 
 		const data = await fetch(
-			endpoint + process.env.REACT_APP_API_KEY + l_ID + s_ID + g_ID
+			endpoint +
+				process.env.REACT_APP_API_KEY +
+				l_ID +
+				s_ID +
+				g_ID +
+				'&page=' +
+				newPage
 		)
 
 		const cards = await data.json()
-
-		setFilteredCards(cards.results)
+		if (reset) setFilteredCards(cards.results)
+		else
+			setFilteredCards((prev) => {
+				return [...prev, ...cards.results]
+			})
 	}
 
 	useEffect(() => {
@@ -109,10 +121,11 @@ const Search = ({ title, endpoint, genreId, languageId, popularityID }) => {
 			const cards = await data.json()
 
 			setFilteredCards(cards.results)
+			setMaxPage(cards.total_pages)
 		}
 
 		getData()
-
+		console.log('hello')
 		return () => controller.abort()
 	}, [setFilteredCards, endpoint])
 
@@ -130,16 +143,31 @@ const Search = ({ title, endpoint, genreId, languageId, popularityID }) => {
 							))}
 							<button
 								className="search__button"
-								onClick={() => UpdateFilters()}
+								onClick={() => UpdateFilters(true, 1)}
 							>
 								Search
 							</button>
 						</div>
-						<div className="search__right">
+						<motion.div className="search__right">
 							{filteredCards.map((card) => (
 								<SearchCard key={card.id} card={card} />
 							))}
-						</div>
+							<button
+								onClick={() => {
+									setCurrentPage((prev) => {
+										return prev + 1
+									})
+									UpdateFilters(false, currentPage + 1)
+								}}
+								className={
+									currentPage >= maxPage
+										? 'search__button none'
+										: 'search__button more'
+								}
+							>
+								Load More
+							</button>
+						</motion.div>
 					</div>
 				</div>
 			</div>

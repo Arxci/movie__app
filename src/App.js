@@ -23,7 +23,7 @@ function App() {
 								path="/search/movies"
 								element={
 									<Search
-										title={'Popular Movies'}
+										title={'Movies'}
 										endpoint="//api.themoviedb.org/3/discover/movie?api_key="
 										languageId={[
 											{
@@ -148,7 +148,7 @@ function App() {
 								path="/search/tv"
 								element={
 									<Search
-										title={'Popular TV Shows'}
+										title={'TV Shows'}
 										languageId={[
 											{
 												key: 0,

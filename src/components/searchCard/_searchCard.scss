@@ -45,11 +45,6 @@
 			height: stretch;
 			object-fit: cover;
 			object-position: 50% 80%;
-			transition: transform 150ms ease-in-out;
-
-			&:hover {
-				transform: scale(1.02);
-			}
 		}
 	}
 

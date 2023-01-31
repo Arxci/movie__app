@@ -2,15 +2,30 @@ import React from 'react'
 import useConvertDate from '../../hooks/useConvertDate'
 import useGetPosterImage from '../../hooks/useGetPosterImage'
 import Rating from '../rating/Rating'
+import { motion } from 'framer-motion'
 
 const SearchCard = ({ card }) => {
 	const image = useGetPosterImage(card, 500)
 	var date = useConvertDate(card)
 
+	const item = {
+		hidden: { opacity: 0 },
+		visible: {
+			opacity: 1,
+		},
+	}
+
 	return (
-		<div className="search-card">
+		<motion.div
+			layout
+			variants={item}
+			initial="hidden"
+			animate="visible"
+			transition={{ duration: 0.5 }}
+			className="search-card"
+		>
 			<div className="search-card__upper">
-				<img src={image} alt={'This title doesnt have an image'} />
+				<img src={image} alt={"This title doesn't have a poster"} />
 			</div>
 			<div className="search-card__rating">
 				<Rating movie={card} />
@@ -21,7 +36,7 @@ const SearchCard = ({ card }) => {
 				</h4>
 				<h4 className={'search-card__date '}>{date}</h4>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 

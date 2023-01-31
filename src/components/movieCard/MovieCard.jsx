@@ -25,7 +25,7 @@ const MovieCard = ({ movie, color }) => {
 			variants={item}
 			initial="hidden"
 			animate={isInView ? 'visible' : ''}
-			transition={{ duration: 0.5 }}
+			transition={{ duration: 0.2 }}
 			className="card"
 		>
 			<div className="card__upper">
