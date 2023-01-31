@@ -47,8 +47,8 @@
 }
 
 .nav__list {
+	margin-right: 0.7rem;
 	display: flex;
-	margin-right: 0 0.7rem;
 	gap: 20px;
 }
 
@@ -59,6 +59,7 @@
 .hamburger {
 	color: $white;
 	position: relative;
+	padding-right: 0.7rem;
 
 	&__list {
 		position: absolute;

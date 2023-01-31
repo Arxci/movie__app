@@ -1,0 +1,97 @@
+.search-card {
+	width: calc(100% / 5 - 18px);
+	background-color: $white;
+	border: 1px solid $light-grey;
+	border-radius: 10px;
+	box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+	position: relative;
+	overflow: hidden;
+
+	@include breakpoint-down(medium) {
+		width: calc(100% / 3 - 18px);
+		max-width: 200px;
+	}
+
+	@include breakpoint-down(small) {
+		width: calc(100% / 1 - 18px);
+		max-width: 400px;
+	}
+
+	@include breakpoint-down(xsmall) {
+		max-width: 250px;
+	}
+
+	&__upper {
+		height: 250px;
+		background-color: rgba(0, 0, 0, 0.5);
+		cursor: pointer;
+
+		@include breakpoint-down(medium) {
+			height: 300px;
+		}
+
+		@include breakpoint-down(small) {
+			height: 500px;
+		}
+
+		@include breakpoint-down(xsmall) {
+			height: 300px;
+		}
+
+		z-index: 1;
+
+		> img {
+			width: stretch;
+			height: stretch;
+			object-fit: cover;
+			object-position: 50% 80%;
+			transition: transform 150ms ease-in-out;
+
+			&:hover {
+				transform: scale(1.02);
+			}
+		}
+	}
+
+	&__rating {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		top: 225px;
+		left: 10px;
+		z-index: 1;
+
+		@include breakpoint-down(medium) {
+			top: 275px;
+		}
+
+		@include breakpoint-down(small) {
+			top: 475px;
+		}
+
+		@include breakpoint-down(xsmall) {
+			top: 275px;
+		}
+	}
+
+	&__lower {
+		padding-top: 1rem;
+		margin: 0.5rem;
+	}
+
+	&__name {
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+
+		&.secondary {
+			color: $white;
+		}
+	}
+
+	&__date {
+		z-index: 1;
+		color: $dark-grey;
+	}
+}

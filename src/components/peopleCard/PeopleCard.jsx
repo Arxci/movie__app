@@ -6,8 +6,6 @@ import { Link } from 'react-router-dom'
 const PeopleCard = ({ person }) => {
 	const image = useGetPersonImage(person, 400)
 	const details = useMemo(() => {
-		const maxNumOfCharacters = 30
-
 		var tempDetails = ''
 		person.known_for.forEach((item) => {
 			if (tempDetails !== '') {
@@ -19,12 +17,6 @@ const PeopleCard = ({ person }) => {
 				tempDetails = tempDetails + item.name
 			}
 		})
-
-		if (tempDetails.length >= maxNumOfCharacters) {
-			tempDetails = tempDetails.substring(0, maxNumOfCharacters)
-		}
-
-		tempDetails = tempDetails + '...'
 
 		return tempDetails
 	}, [person])
@@ -47,7 +39,7 @@ const PeopleCard = ({ person }) => {
 		>
 			<div className="person__upper">
 				<Link to="/person">
-					<img className="person__image" src={image} alt="" />
+					<img className="person__image" src={image} alt={person.name} />
 				</Link>
 			</div>
 			<div className="person__lower">

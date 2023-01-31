@@ -2,9 +2,11 @@ import React, { useRef } from 'react'
 import useGetPosterImage from '../../hooks/useGetPosterImage'
 import { motion, useInView } from 'framer-motion'
 import Rating from '../rating/Rating'
+import useConvertDate from '../../hooks/useConvertDate'
 
 const MovieCard = ({ movie, color }) => {
 	const image = useGetPosterImage(movie, 300)
+	var date = useConvertDate(movie)
 	const ref = useRef(null)
 	const isInView = useInView(ref)
 
@@ -36,11 +38,7 @@ const MovieCard = ({ movie, color }) => {
 				<h4 className={'card__name ' + color}>
 					{movie.title === undefined ? movie.name : movie.title}
 				</h4>
-				<h4 className={'card__date ' + color}>
-					{movie.release_date === undefined
-						? movie.first_air_date
-						: movie.release_date}
-				</h4>
+				<h4 className={'card__date ' + color}>{date}</h4>
 			</div>
 		</motion.div>
 	)

@@ -25,7 +25,6 @@ const fetchDailyTrendingMovies = async (setMovies, signal) => {
 	const movies = await data.json()
 
 	setMovies(movies.results)
-	console.log(movies.results)
 }
 
 const HomePageTrending = () => {

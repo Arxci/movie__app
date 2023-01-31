@@ -32,12 +32,12 @@ const Header = () => {
 						</Link>
 						<ul className="nav__list">
 							<li className="nav__item  hide-for-mobile">
-								<Link to="/">
+								<Link to="/search/movies">
 									<h4 className="nav__link">Movies</h4>
 								</Link>
 							</li>
 							<li className="nav__item  hide-for-mobile">
-								<Link to="/">
+								<Link to="/search/tv">
 									<h4 className="nav__link">TV Shows</h4>
 								</Link>
 							</li>

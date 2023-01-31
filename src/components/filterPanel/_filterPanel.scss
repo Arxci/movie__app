@@ -1,0 +1,65 @@
+.filter-panel {
+	width: stretch;
+	height: max-content;
+	background-color: $white;
+	box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+	overflow: hidden;
+	border-radius: 5px;
+	border: 1px solid $light-grey;
+
+	&__wrapper {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	&__upper {
+		height: 50px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: stretch;
+		font-size: 0.8rem;
+		font-weight: 700;
+		cursor: pointer;
+		border-bottom: 1px solid $light-grey;
+
+		> * {
+			margin: 0rem 1rem;
+		}
+
+		> i {
+			transition: transform 100ms ease-in-out;
+
+			&.open {
+				transform: rotate((90deg));
+			}
+		}
+	}
+
+	&__lower {
+		margin: 1rem 0rem;
+		display: none;
+		width: stretch;
+
+		> * {
+			margin: 0rem 1rem;
+		}
+
+		&.open {
+			display: flex;
+			flex-direction: column;
+			gap: 10px;
+		}
+	}
+
+	&__section {
+		width: stretch;
+
+		&-title {
+			margin-bottom: 0.5rem;
+			font-weight: 200;
+			font-size: 0.8rem;
+		}
+	}
+}

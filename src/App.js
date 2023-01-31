@@ -1,7 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/header/Header'
-import Home from './pages/home/Home'
-import PopularPeople from './pages/popularPeople/PopularPeople'
+import React, { lazy, Suspense } from 'react'
+
+const Home = lazy(() => import('./pages/home/Home'))
+const PopularPeople = lazy(() => import('./pages/popularPeople/PopularPeople'))
+const Search = lazy(() => import('./pages/search/Search'))
 
 function App() {
 	return (
@@ -12,10 +15,257 @@ function App() {
 				</div>
 
 				<div className="app__pages">
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/person" element={<PopularPeople />} />
-					</Routes>
+					<Suspense>
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route path="/person" element={<PopularPeople />} />
+							<Route
+								path="/search/movies"
+								element={
+									<Search
+										title={'Popular Movies'}
+										endpoint="//api.themoviedb.org/3/discover/movie?api_key="
+										languageId={[
+											{
+												key: 0,
+												id: '',
+												name: 'None Selected',
+											},
+											{
+												key: 1,
+												id: 'en',
+												name: 'English',
+											},
+											{
+												key: 2,
+												id: 'fr',
+												name: 'French',
+											},
+											{
+												key: 3,
+												id: 'de',
+												name: 'German',
+											},
+											{
+												key: 4,
+												id: 'es',
+												name: 'Spanish',
+											},
+											{
+												key: 5,
+												id: 'ja',
+												name: 'Japanese',
+											},
+											{
+												key: 6,
+												id: 'pt',
+												name: 'Portuguese',
+											},
+										]}
+										genreId={[
+											{
+												key: 0,
+												id: '',
+												name: 'None Selected',
+											},
+											{
+												key: 1,
+												id: 28,
+												name: 'Action',
+											},
+											{
+												key: 2,
+												id: 12,
+												name: 'Adventure',
+											},
+											{
+												key: 3,
+												id: 35,
+												name: 'Comedy',
+											},
+											{
+												key: 4,
+												id: 27,
+												name: 'Horror',
+											},
+											{
+												key: 5,
+												id: 53,
+												name: 'Thriller',
+											},
+											{
+												key: 6,
+												id: 18,
+												name: 'Drama',
+											},
+											{
+												key: 7,
+												id: 99,
+												name: 'Documentary',
+											},
+											{
+												key: 8,
+												id: 14,
+												name: 'Fantasy',
+											},
+										]}
+										popularityID={[
+											{
+												key: 0,
+												id: 'popularity.desc',
+												name: 'Popularity Descending',
+											},
+											{
+												key: 1,
+												id: 'popularity.asc',
+												name: 'Popularity Ascending',
+											},
+											{
+												key: 2,
+												id: 'vote_average.desc',
+												name: 'Rating Descending',
+											},
+											{
+												key: 3,
+												id: 'vote_average.asc',
+												name: 'Rating Ascending',
+											},
+											{
+												key: 4,
+												id: 'first_air_date.desc',
+												name: 'Release Date Descending',
+											},
+											{
+												key: 5,
+												id: 'first_air_date.asc',
+												name: 'Release Date Ascending',
+											},
+										]}
+									/>
+								}
+							/>
+							<Route
+								path="/search/tv"
+								element={
+									<Search
+										title={'Popular TV Shows'}
+										languageId={[
+											{
+												key: 0,
+												id: '',
+												name: 'None Selected',
+											},
+											{
+												key: 1,
+												id: 'en',
+												name: 'English',
+											},
+											{
+												key: 2,
+												id: 'fr',
+												name: 'French',
+											},
+											{
+												key: 3,
+												id: 'de',
+												name: 'German',
+											},
+											{
+												key: 4,
+												id: 'es',
+												name: 'Spanish',
+											},
+											{
+												key: 5,
+												id: 'ja',
+												name: 'Japanese',
+											},
+											{
+												key: 6,
+												id: 'pt',
+												name: 'Portuguese',
+											},
+										]}
+										genreId={[
+											{
+												key: 0,
+												id: '',
+												name: 'None Selected',
+											},
+											{
+												key: 1,
+												id: 10759,
+												name: 'Action',
+											},
+											{
+												key: 2,
+												id: 35,
+												name: 'Comedy',
+											},
+											{
+												key: 3,
+												id: 18,
+												name: 'Drama',
+											},
+											{
+												key: 4,
+												id: 99,
+												name: 'Documentary',
+											},
+											{
+												key: 5,
+												id: 10765,
+												name: 'Fantasy',
+											},
+											{
+												key: 6,
+												id: 10764,
+												name: 'Reality',
+											},
+											{
+												key: 7,
+												id: 10762,
+												name: 'Kids',
+											},
+										]}
+										popularityID={[
+											{
+												key: 0,
+												id: 'popularity.desc',
+												name: 'Popularity Descending',
+											},
+											{
+												key: 1,
+												id: 'popularity.asc',
+												name: 'Popularity Ascending',
+											},
+											{
+												key: 2,
+												id: 'vote_average.desc',
+												name: 'Rating Descending',
+											},
+											{
+												key: 3,
+												id: 'vote_average.asc',
+												name: 'Rating Ascending',
+											},
+											{
+												key: 4,
+												id: 'first_air_date.desc',
+												name: 'Release Date Descending',
+											},
+											{
+												key: 5,
+												id: 'first_air_date.asc',
+												name: 'Release Date Ascending',
+											},
+										]}
+										endpoint="https://api.themoviedb.org/3/discover/tv?api_key="
+									/>
+								}
+							/>
+						</Routes>
+					</Suspense>
 				</div>
 			</BrowserRouter>
 		</div>
