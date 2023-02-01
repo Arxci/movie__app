@@ -1,0 +1,55 @@
+.movie-page {
+	min-height: calc(100vh - $header__height);
+
+	&__banner {
+		width: stretch;
+		height: 500px;
+		overflow: hidden;
+		background-position: calc((((100vw / 2.222222) - 20px) / 1.5) / 2) 0;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+
+	&__wrapper {
+		background-image: linear-gradient(
+			to right,
+			rgba(31.5, 31.5, 31.5, 1) calc((50vw - 170px) - 340px),
+			rgba(31.5, 31.5, 31.5, 0.84) 30%,
+			rgba(31.5, 31.5, 31.5, 0.84) 100%
+		);
+		width: stretch;
+		height: stretch;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__container {
+		padding: 2rem 0rem;
+		width: stretch;
+		height: stretch;
+		display: flex;
+		gap: 20px;
+	}
+
+	&__left {
+		margin-left: 0.7rem;
+		width: 300px;
+		height: stretch;
+		overflow: hidden;
+		border-radius: 10px;
+
+		> img {
+			width: stretch;
+			height: stretch;
+			object-fit: cover;
+			object-position: center center;
+		}
+	}
+
+	&__right {
+		margin-right: 0.7rem;
+		height: stretch;
+		flex: 1;
+	}
+}

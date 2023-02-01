@@ -29,7 +29,7 @@ const MovieCard = ({ movie, color }) => {
 			className="card"
 		>
 			<div className="card__upper">
-				<img src={image} alt="" />
+				<img src={image} alt="poster" />
 			</div>
 			<div className="card__rating">
 				<Rating movie={movie} />

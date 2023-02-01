@@ -37,6 +37,14 @@
 	height: stretch;
 
 	h1 {
+		background: linear-gradient(
+			to right,
+			$lighter-green 20%,
+			$light-green 80%,
+			$light-blue
+		);
+		background-clip: text;
+		color: transparent;
 		margin-left: 0.7rem;
 		font-size: 2rem;
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HomePageBanner = () => {
 	return (
@@ -30,10 +31,10 @@ const HomePageBanner = () => {
 				<div className="top-rated__text">
 					<h1>Top Rated Movies</h1>
 				</div>
-				<button className="top-rated__button">
+				<Link to="/search/movies" className="top-rated__button">
 					<h4>Check It Out</h4>
 					<i className="fa-solid fa-arrow-right"></i>
-				</button>
+				</Link>
 			</section>
 		</div>
 	)

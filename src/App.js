@@ -5,6 +5,7 @@ import React, { lazy, Suspense } from 'react'
 const Home = lazy(() => import('./pages/home/Home'))
 const PopularPeople = lazy(() => import('./pages/popularPeople/PopularPeople'))
 const Search = lazy(() => import('./pages/search/Search'))
+const Movie = lazy(() => import('./pages/movie/Movie'))
 
 function App() {
 	return (
@@ -264,6 +265,9 @@ function App() {
 									/>
 								}
 							/>
+							<Route path="/movie">
+								<Route path=":id" element={<Movie />} />
+							</Route>
 						</Routes>
 					</Suspense>
 				</div>

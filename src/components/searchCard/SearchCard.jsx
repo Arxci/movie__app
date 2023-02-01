@@ -25,7 +25,7 @@ const SearchCard = ({ card }) => {
 			className="search-card"
 		>
 			<div className="search-card__upper">
-				<img src={image} alt={"This title doesn't have a poster"} />
+				<img src={image} alt="Poster" />
 			</div>
 			<div className="search-card__rating">
 				<Rating movie={card} />
