@@ -4,29 +4,37 @@ import { motion } from 'framer-motion'
 import MovieCard from '../movieCard/MovieCard'
 
 const discoverMovie = async (setMovies, signal, discover) => {
-	const data = await fetch(
-		'//api.themoviedb.org/3/discover/movie?api_key=' +
-			process.env.REACT_APP_API_KEY +
-			discover,
-		{ signal }
-	)
+	try {
+		const data = await fetch(
+			'//api.themoviedb.org/3/discover/movie?api_key=' +
+				process.env.REACT_APP_API_KEY +
+				discover,
+			{ signal }
+		)
 
-	const movies = await data.json()
+		const movies = await data.json()
 
-	setMovies(movies.results)
+		setMovies(movies.results)
+	} catch (err) {
+		console.log(err)
+	}
 }
 
 const discoverTv = async (setMovies, signal, discover) => {
-	const data = await fetch(
-		'//api.themoviedb.org/3/discover/tv?api_key=' +
-			process.env.REACT_APP_API_KEY +
-			discover,
-		{ signal }
-	)
+	try {
+		const data = await fetch(
+			'//api.themoviedb.org/3/discover/tv?api_key=' +
+				process.env.REACT_APP_API_KEY +
+				discover,
+			{ signal }
+		)
 
-	const movies = await data.json()
+		const movies = await data.json()
 
-	setMovies(movies.results)
+		setMovies(movies.results)
+	} catch (err) {
+		console.log(err)
+	}
 }
 
 const HomePagePopular = () => {

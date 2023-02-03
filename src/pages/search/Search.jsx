@@ -113,19 +113,22 @@ const Search = ({ title, endpoint, genreId, languageId, popularityID }) => {
 		const signal = controller.signal
 
 		const getData = async () => {
-			const data = await fetch(
-				endpoint + process.env.REACT_APP_API_KEY + '&sort_by=popularity.desc',
-				{ signal }
-			)
+			try {
+				const data = await fetch(
+					endpoint + process.env.REACT_APP_API_KEY + '&sort_by=popularity.desc',
+					{ signal }
+				)
 
-			const cards = await data.json()
+				const cards = await data.json()
 
-			setFilteredCards(cards.results)
-			setMaxPage(cards.total_pages)
+				setFilteredCards(cards.results)
+				setMaxPage(cards.total_pages)
+			} catch (err) {
+				console.log(err)
+			}
 		}
 
 		getData()
-		console.log('hello')
 		return () => controller.abort()
 	}, [setFilteredCards, endpoint])
 

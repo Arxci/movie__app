@@ -266,7 +266,35 @@ function App() {
 								}
 							/>
 							<Route path="/movie">
-								<Route path=":id" element={<Movie />} />
+								<Route
+									path=":id"
+									element={
+										<Movie
+											cardEndpoint={[
+												'//api.themoviedb.org/3/movie/',
+												'?api_key=',
+											]}
+											releaseDateEndpoint={[
+												'//api.themoviedb.org/3/movie/',
+												'/release_dates?api_key=',
+											]}
+										/>
+									}
+								/>
+							</Route>
+							<Route path="/tv">
+								<Route
+									path=":id"
+									element={
+										<Movie
+											cardEndpoint={['//api.themoviedb.org/3/tv/', '?api_key=']}
+											releaseDateEndpoint={[
+												'//api.themoviedb.org/3/tv/',
+												'/content_ratings?api_key=',
+											]}
+										/>
+									}
+								/>
 							</Route>
 						</Routes>
 					</Suspense>

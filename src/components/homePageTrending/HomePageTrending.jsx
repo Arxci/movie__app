@@ -4,27 +4,35 @@ import MovieCard from '../movieCard/MovieCard'
 import { motion } from 'framer-motion'
 
 const fetchWeeklyTrendingMovies = async (setMovies, signal) => {
-	const data = await fetch(
-		'//api.themoviedb.org/3/trending/all/week?api_key=' +
-			process.env.REACT_APP_API_KEY,
-		{ signal }
-	)
+	try {
+		const data = await fetch(
+			'//api.themoviedb.org/3/trending/all/week?api_key=' +
+				process.env.REACT_APP_API_KEY,
+			{ signal }
+		)
 
-	const movies = await data.json()
+		const movies = await data.json()
 
-	setMovies(movies.results)
+		setMovies(movies.results)
+	} catch (err) {
+		console.log(err)
+	}
 }
 
 const fetchDailyTrendingMovies = async (setMovies, signal) => {
-	const data = await fetch(
-		'//api.themoviedb.org/3/trending/all/day?api_key=' +
-			process.env.REACT_APP_API_KEY,
-		{ signal }
-	)
+	try {
+		const data = await fetch(
+			'//api.themoviedb.org/3/trending/all/day?api_key=' +
+				process.env.REACT_APP_API_KEY,
+			{ signal }
+		)
 
-	const movies = await data.json()
+		const movies = await data.json()
 
-	setMovies(movies.results)
+		setMovies(movies.results)
+	} catch (err) {
+		console.log(err)
+	}
 }
 
 const HomePageTrending = () => {

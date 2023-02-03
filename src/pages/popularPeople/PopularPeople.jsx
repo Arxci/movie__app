@@ -3,20 +3,22 @@ import ReactPaginate from 'react-paginate'
 import PeopleCard from '../../components/peopleCard/PeopleCard'
 
 const fetchPopularPeople = async (setPeople, setNumOfPages, signal, page) => {
-	const data = await fetch(
-		'//api.themoviedb.org/3/person/popular?api_key=' +
-			process.env.REACT_APP_API_KEY +
-			'&language=en-US&page=' +
-			page,
-		{ signal }
-	)
+	try {
+		const data = await fetch(
+			'//api.themoviedb.org/3/person/popular?api_key=' +
+				process.env.REACT_APP_API_KEY +
+				'&language=en-US&page=' +
+				page,
+			{ signal }
+		)
 
-	const people = await data.json()
+		const people = await data.json()
 
-	console.log(people.results)
-
-	setPeople(people.results)
-	setNumOfPages(people.total_pages)
+		setPeople(people.results)
+		setNumOfPages(people.total_pages)
+	} catch (err) {
+		console.log(err)
+	}
 }
 
 const PopularPeople = () => {

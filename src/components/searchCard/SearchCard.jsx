@@ -3,10 +3,12 @@ import useConvertDate from '../../hooks/useConvertDate'
 import useGetPosterImage from '../../hooks/useGetPosterImage'
 import Rating from '../rating/Rating'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 const SearchCard = ({ card }) => {
 	const image = useGetPosterImage(card, 500)
 	var date = useConvertDate(card)
+	const isTv = card.first_air_date !== undefined
 
 	const item = {
 		hidden: { opacity: 0 },
@@ -25,7 +27,9 @@ const SearchCard = ({ card }) => {
 			className="search-card"
 		>
 			<div className="search-card__upper">
-				<img src={image} alt="Poster" />
+				<Link to={isTv ? '/tv/' + card.id : '/movie/' + card.id}>
+					<img className="card__image" src={image} alt="Poster" />
+				</Link>
 			</div>
 			<div className="search-card__rating">
 				<Rating movie={card} />

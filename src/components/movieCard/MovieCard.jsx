@@ -3,11 +3,13 @@ import useGetPosterImage from '../../hooks/useGetPosterImage'
 import { motion, useInView } from 'framer-motion'
 import Rating from '../rating/Rating'
 import useConvertDate from '../../hooks/useConvertDate'
+import { Link } from 'react-router-dom'
 
 const MovieCard = ({ movie, color }) => {
-	const image = useGetPosterImage(movie, 300)
+	var image = useGetPosterImage(movie, 300)
 	var date = useConvertDate(movie)
 	const ref = useRef(null)
+	const isTv = movie.first_air_date !== undefined
 	const isInView = useInView(ref)
 
 	const item = {
@@ -29,7 +31,9 @@ const MovieCard = ({ movie, color }) => {
 			className="card"
 		>
 			<div className="card__upper">
-				<img src={image} alt="poster" />
+				<Link to={isTv ? '/tv/' + movie.id : '/movie/' + movie.id}>
+					<img className="card__image" src={image} alt="poster" />
+				</Link>
 			</div>
 			<div className="card__rating">
 				<Rating movie={movie} />

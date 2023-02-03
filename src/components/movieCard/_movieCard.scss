@@ -12,12 +12,12 @@
 		cursor: pointer;
 
 		z-index: 1;
+	}
 
-		> img {
-			width: stretch;
-			height: stretch;
-			object-fit: cover;
-		}
+	&__image {
+		width: stretch;
+		height: stretch;
+		object-fit: cover;
 	}
 
 	&__rating {

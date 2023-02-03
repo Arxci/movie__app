@@ -9,7 +9,7 @@ const Header = () => {
 	useEffect(() => {
 		function OnScroll() {
 			var st = window.pageYOffset || document.documentElement.scrollTop
-			if (st > lastScroll.current) {
+			if (st > lastScroll.current && st > 60) {
 				setCurrentVisibility('hide')
 			} else if (st < lastScroll.current) {
 				setCurrentVisibility('show')
@@ -17,9 +17,13 @@ const Header = () => {
 			lastScroll.current = st < 0 ? 0 : st
 		}
 
-		window.addEventListener('scroll', (e) => OnScroll(e))
+		window.addEventListener('scroll', () => OnScroll())
+		window.addEventListener('touchmove', () => OnScroll())
 
-		return () => window.removeEventListener('scroll', OnScroll())
+		return () => {
+			window.removeEventListener('scroll', () => OnScroll())
+			window.removeEventListener('touchmove', () => OnScroll())
+		}
 	}, [setCurrentVisibility, lastScroll])
 
 	return (
@@ -56,11 +60,28 @@ const Header = () => {
 					</div>
 				</nav>
 			</div>
-			<ul
+			<div
+				onClick={() => setHamburgerOpen(false)}
 				className={hamburgerOpen ? 'hamburger__list open' : 'hamburger__list'}
 			>
-				<li></li>
-			</ul>
+				<ul className="hamburger__menu">
+					<li className="hamburger__item">
+						<Link to="/search/movies" onClick={() => setHamburgerOpen(false)}>
+							<h4 className="hamburger__link">Movies</h4>
+						</Link>
+					</li>
+					<li className="hamburger__item">
+						<Link to="/search/tv" onClick={() => setHamburgerOpen(false)}>
+							<h4 className="hamburger__link">TV Shows</h4>
+						</Link>
+					</li>
+					<li className="hamburger__item">
+						<Link to="/person" onClick={() => setHamburgerOpen(false)}>
+							<h4 className="hamburger__link">People</h4>
+						</Link>
+					</li>
+				</ul>
+			</div>
 		</div>
 	)
 }

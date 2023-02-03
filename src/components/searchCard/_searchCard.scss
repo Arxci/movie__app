@@ -39,13 +39,12 @@
 		}
 
 		z-index: 1;
+	}
 
-		> img {
-			width: stretch;
-			height: stretch;
-			object-fit: cover;
-			aspect-ratio: 1/1;
-		}
+	&__image {
+		width: stretch;
+		height: stretch;
+		object-fit: cover;
 	}
 
 	&__rating {
