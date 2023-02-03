@@ -47,7 +47,7 @@ const PopularPeople = () => {
 			<div className="people__wrapper container">
 				<div className="people__container">
 					{people.map((person) => (
-						<PeopleCard key={person.id} person={person} />
+						<PeopleCard key={person.id} person={person} setWidth={false} />
 					))}
 				</div>
 				<div id="container" className="pagination">

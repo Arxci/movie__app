@@ -16,6 +16,10 @@
 		width: calc(100% / 1 - 20px);
 	}
 
+	&.set {
+		width: 130px;
+	}
+
 	&__upper {
 		height: 200px;
 	}

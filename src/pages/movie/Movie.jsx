@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import useGetBackdropImage from '../../hooks/useGetBackdropImage'
 import useGetPosterImage from '../../hooks/useGetPosterImage'
 import Rating from '../../components/rating/Rating'
+import PeopleCard from '../../components/peopleCard/PeopleCard'
 
 const ConvertRunTime = (card) => {
 	if (card) {
@@ -106,9 +107,10 @@ const GetOrigDate = (card) => {
 	return ''
 }
 
-const Movie = ({ cardEndpoint, releaseDateEndpoint }) => {
+const Movie = ({ cardEndpoint, releaseDateEndpoint, castEndpoint }) => {
 	const { id } = useParams()
 	const [card, setCard] = useState(null)
+	const [cast, setCast] = useState(null)
 	const [certification, setCertification] = useState('')
 	const bannerImg = useGetBackdropImage(card, '1280')
 	const posterImg = useGetPosterImage(card, '500')
@@ -159,6 +161,45 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint }) => {
 		const getData = async () => {
 			try {
 				const data = await fetch(
+					castEndpoint[0] +
+						id +
+						castEndpoint[1] +
+						process.env.REACT_APP_API_KEY,
+					{ signal }
+				)
+
+				const newCast = await data.json()
+
+				var temp = []
+				var int = 0
+
+				newCast.cast.forEach((person) => {
+					if (int < 20) {
+						temp.push(person)
+						int += 1
+					} else {
+						return
+					}
+				})
+				console.log(temp)
+				setCast(temp)
+			} catch (err) {
+				console.log(err)
+			}
+		}
+
+		getData()
+
+		return () => controller.abort()
+	}, [id, setCast, castEndpoint])
+
+	useEffect(() => {
+		const controller = new AbortController()
+		const signal = controller.signal
+
+		const getData = async () => {
+			try {
+				const data = await fetch(
 					releaseDateEndpoint[0] +
 						id +
 						releaseDateEndpoint[1] +
@@ -198,7 +239,7 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint }) => {
 					<div className="movie-page__wrapper">
 						<div className="movie-page__container container">
 							<div className="movie-page__left">
-								<img src={posterImg} alt="poster" />
+								<img src={posterImg} loading="lazy" alt="poster" />
 							</div>
 							<div className="movie-page__right hide-for-mobile">
 								<div className="movie-page__content">
@@ -276,6 +317,17 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint }) => {
 					</div>
 				</div>
 			)}
+			<div className="movie-page__cast">
+				<div className="movie-page__cast__wrapper  container">
+					<h2>Series Cast</h2>
+					<div className="movie-page__scroller">
+						{cast &&
+							cast.map((person) => (
+								<PeopleCard key={person.id} person={person} setWidth={true} />
+							))}
+					</div>
+				</div>
+			</div>
 		</div>
 	)
 }

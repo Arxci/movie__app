@@ -32,7 +32,12 @@ const MovieCard = ({ movie, color }) => {
 		>
 			<div className="card__upper">
 				<Link to={isTv ? '/tv/' + movie.id : '/movie/' + movie.id}>
-					<img className="card__image" src={image} alt="poster" />
+					<img
+						className="card__image"
+						loading="lazy"
+						src={image}
+						alt="poster"
+					/>
 				</Link>
 			</div>
 			<div className="card__rating">

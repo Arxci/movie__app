@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
 const SearchCard = ({ card }) => {
-	const image = useGetPosterImage(card, 500)
+	const image = useGetPosterImage(card, 300)
 	var date = useConvertDate(card)
 	const isTv = card.first_air_date !== undefined
 
@@ -28,7 +28,12 @@ const SearchCard = ({ card }) => {
 		>
 			<div className="search-card__upper">
 				<Link to={isTv ? '/tv/' + card.id : '/movie/' + card.id}>
-					<img className="card__image" src={image} alt="Poster" />
+					<img
+						className="card__image"
+						loading="lazy"
+						src={image}
+						alt="Poster"
+					/>
 				</Link>
 			</div>
 			<div className="search-card__rating">

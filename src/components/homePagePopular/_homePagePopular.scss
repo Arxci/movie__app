@@ -74,6 +74,10 @@
 		height: 350px;
 		position: relative;
 
+		@include breakpoint-down(medium) {
+			margin-right: -0.7rem;
+		}
+
 		/* Hide scrollbar for Chrome, Safari and Opera */
 		&::-webkit-scrollbar {
 			display: none;

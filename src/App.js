@@ -278,6 +278,10 @@ function App() {
 												'//api.themoviedb.org/3/movie/',
 												'/release_dates?api_key=',
 											]}
+											castEndpoint={[
+												'//api.themoviedb.org/3/movie/',
+												'/credits?api_key=',
+											]}
 										/>
 									}
 								/>
@@ -291,6 +295,10 @@ function App() {
 											releaseDateEndpoint={[
 												'//api.themoviedb.org/3/tv/',
 												'/content_ratings?api_key=',
+											]}
+											castEndpoint={[
+												'//api.themoviedb.org/3/tv/',
+												'/aggregate_credits?api_key=',
 											]}
 										/>
 									}

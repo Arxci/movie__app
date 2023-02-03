@@ -3,20 +3,22 @@ import useGetPersonImage from '../../hooks/useGetPersonImage'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 
-const PeopleCard = ({ person }) => {
-	const image = useGetPersonImage(person, 400)
+const PeopleCard = ({ person, setWidth }) => {
+	const image = useGetPersonImage(person, 200)
 	const details = useMemo(() => {
 		var tempDetails = ''
-		person.known_for.forEach((item) => {
-			if (tempDetails !== '') {
-				tempDetails = tempDetails + ', '
-			}
-			if (item.name === undefined) {
-				tempDetails = tempDetails + item.title
-			} else {
-				tempDetails = tempDetails + item.name
-			}
-		})
+		if (person.known_for !== undefined) {
+			person.known_for.forEach((item) => {
+				if (tempDetails !== '') {
+					tempDetails = tempDetails + ', '
+				}
+				if (item.name === undefined) {
+					tempDetails = tempDetails + item.title
+				} else {
+					tempDetails = tempDetails + item.name
+				}
+			})
+		}
 
 		return tempDetails
 	}, [person])
@@ -35,11 +37,16 @@ const PeopleCard = ({ person }) => {
 			initial="hidden"
 			animate="visible"
 			transition={{ duration: 0.25 }}
-			className="person"
+			className={setWidth ? 'person set' : 'person'}
 		>
 			<div className="person__upper">
 				<Link to="/person">
-					<img className="person__image" src={image} alt={person.name} />
+					<img
+						className="person__image"
+						loading="lazy"
+						src={image}
+						alt={person.name}
+					/>
 				</Link>
 			</div>
 			<div className="person__lower">
