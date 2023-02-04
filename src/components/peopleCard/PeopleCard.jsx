@@ -7,7 +7,9 @@ const PeopleCard = ({ person, setWidth }) => {
 	const image = useGetPersonImage(person, 200)
 	const details = useMemo(() => {
 		var tempDetails = ''
-		if (person.known_for !== undefined) {
+		if (person.character !== undefined) {
+			tempDetails = person.character
+		} else if (person.known_for !== undefined) {
 			person.known_for.forEach((item) => {
 				if (tempDetails !== '') {
 					tempDetails = tempDetails + ', '
@@ -40,7 +42,7 @@ const PeopleCard = ({ person, setWidth }) => {
 			className={setWidth ? 'person set' : 'person'}
 		>
 			<div className="person__upper">
-				<Link to="/person">
+				<Link to={'/person/' + person.id}>
 					<img
 						className="person__image"
 						loading="lazy"

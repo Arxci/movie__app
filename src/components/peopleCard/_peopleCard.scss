@@ -1,5 +1,7 @@
 .person {
 	width: calc(100% / 5 - 20px);
+	background-color: white;
+	border-radius: 10px;
 	border: 1px solid $light-grey;
 	box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
 
@@ -26,6 +28,8 @@
 
 	&__image {
 		background-color: #dbdbdb;
+		border-radius: 10px 10px 0px 0px;
+		overflow: hidden;
 		width: stretch;
 		height: stretch;
 		object-fit: cover;
@@ -37,7 +41,7 @@
 		margin: 0.5rem;
 		display: flex;
 		justify-content: center;
-		height: calc(75px - 16px);
+
 		flex-direction: column;
 		gap: 5px;
 		height: max-content;

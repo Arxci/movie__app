@@ -121,7 +121,7 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint, castEndpoint }) => {
 	const overview = GetOverview(card)
 	const origDate = GetOrigDate(card)
 	const title = GetTitle(card)
-
+	console.log(card)
 	const banner = useRef()
 	if (banner.current) {
 		banner.current.style.backgroundImage = 'url(' + bannerImg + ')'
@@ -181,7 +181,6 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint, castEndpoint }) => {
 						return
 					}
 				})
-				console.log(temp)
 				setCast(temp)
 			} catch (err) {
 				console.log(err)
@@ -319,7 +318,7 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint, castEndpoint }) => {
 			)}
 			<div className="movie-page__cast">
 				<div className="movie-page__cast__wrapper  container">
-					<h2>Series Cast</h2>
+					<h2>Cast</h2>
 					<div className="movie-page__scroller">
 						{cast &&
 							cast.map((person) => (

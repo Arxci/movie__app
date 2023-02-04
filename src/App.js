@@ -6,6 +6,7 @@ const Home = lazy(() => import('./pages/home/Home'))
 const PopularPeople = lazy(() => import('./pages/popularPeople/PopularPeople'))
 const Search = lazy(() => import('./pages/search/Search'))
 const Movie = lazy(() => import('./pages/movie/Movie'))
+const Person = lazy(() => import('./pages/person/Person'))
 
 function App() {
 	return (
@@ -303,6 +304,9 @@ function App() {
 										/>
 									}
 								/>
+							</Route>
+							<Route path="/person">
+								<Route path=":id" element={<Person />} />
 							</Route>
 						</Routes>
 					</Suspense>
