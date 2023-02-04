@@ -1,12 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Header from './components/header/Header'
 import React, { lazy, Suspense } from 'react'
+import Footer from './components/footer/Footer'
 
 const Home = lazy(() => import('./pages/home/Home'))
 const PopularPeople = lazy(() => import('./pages/popularPeople/PopularPeople'))
 const Search = lazy(() => import('./pages/search/Search'))
 const Movie = lazy(() => import('./pages/movie/Movie'))
 const Person = lazy(() => import('./pages/person/Person'))
+const Discover = lazy(() => import('./pages/discover/Discover'))
 
 function App() {
 	return (
@@ -308,9 +310,13 @@ function App() {
 							<Route path="/person">
 								<Route path=":id" element={<Person />} />
 							</Route>
+							<Route path="/discover">
+								<Route path=":search" element={<Discover />} />
+							</Route>
 						</Routes>
 					</Suspense>
 				</div>
+				<Footer />
 			</BrowserRouter>
 		</div>
 	)

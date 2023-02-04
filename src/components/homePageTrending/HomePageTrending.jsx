@@ -14,25 +14,22 @@ const fetchWeeklyTrendingMovies = async (setMovies, signal) => {
 		const movies = await data.json()
 
 		setMovies(movies.results)
-	} catch (err) {
-		console.log(err)
-	}
+	} catch (err) {}
 }
 
 const fetchDailyTrendingMovies = async (setMovies, signal) => {
 	try {
 		const data = await fetch(
 			'//api.themoviedb.org/3/trending/all/day?api_key=' +
-				process.env.REACT_APP_API_KEY,
+				process.env.REACT_APP_API_KEY +
+				'&language=en-US',
 			{ signal }
 		)
 
 		const movies = await data.json()
 
 		setMovies(movies.results)
-	} catch (err) {
-		console.log(err)
-	}
+	} catch (err) {}
 }
 
 const HomePageTrending = () => {

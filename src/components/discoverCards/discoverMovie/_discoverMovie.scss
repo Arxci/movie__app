@@ -1,0 +1,44 @@
+.discover-movie {
+	height: 125px;
+	box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+	border: 1px solid rgba(var(--lightGrey), 1);
+	overflow: hidden;
+	border-radius: 10px;
+	display: flex;
+
+	&__image {
+		width: 90px;
+		height: 125px;
+	}
+
+	&__content {
+		margin: 1rem;
+		color: $black;
+	}
+
+	&__title {
+		margin-bottom: 0.5rem;
+		font-weight: 500;
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+	}
+
+	&__date {
+		color: $dark-grey;
+		font-weight: 400;
+		margin-bottom: 0.5rem;
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 1;
+	}
+
+	&__overview {
+		display: -webkit-box;
+		overflow: hidden;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+	}
+}

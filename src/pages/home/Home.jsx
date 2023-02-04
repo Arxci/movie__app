@@ -5,6 +5,8 @@ import HomePagePopular from '../../components/homePagePopular/HomePagePopular'
 import HomePageTrending from '../../components/homePageTrending/HomePageTrending'
 
 const Home = () => {
+	window.scrollTo(0, 0)
+
 	return (
 		<div className="home">
 			<HomePageBanner />

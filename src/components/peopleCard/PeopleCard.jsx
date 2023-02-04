@@ -26,10 +26,9 @@ const PeopleCard = ({ person, setWidth }) => {
 	}, [person])
 
 	const item = {
-		hidden: { opacity: 0, scale: 0.98 },
+		hidden: { opacity: 0 },
 		visible: {
 			opacity: 1,
-			scale: 1,
 		},
 	}
 

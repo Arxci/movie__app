@@ -1,0 +1,80 @@
+.discover {
+	&__wrapper {
+		min-height: calc(100vh - $header__height);
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+	}
+
+	&__container {
+		width: stretch;
+		display: flex;
+		gap: 10px;
+		margin: 2rem;
+
+		@include breakpoint-down(medium) {
+			flex-direction: column;
+			margin: 0.7rem;
+		}
+	}
+
+	&__left {
+		width: 300px;
+		border-radius: 10px;
+		border: 1px solid $light-grey;
+		height: max-content;
+		margin-left: 0.7rem;
+		display: flex;
+		flex-direction: column;
+		overflow: hidden;
+
+		@include breakpoint-down(medium) {
+			margin: 0rem;
+			width: stretch;
+		}
+
+		h3 {
+			padding: 1.25rem 1rem;
+			background-color: $light-blue;
+			font-weight: 500;
+			color: $white;
+		}
+	}
+
+	&__search-options {
+		margin: 0.5rem 0rem;
+	}
+
+	&__search-option {
+		padding: 0.5rem 1rem;
+		cursor: pointer;
+		transition: background-color 100ms ease-in-out;
+
+		&:hover,
+		&.active {
+			background-color: $light-grey;
+		}
+
+		&.active {
+			> h4 {
+				font-weight: 400;
+			}
+		}
+
+		> h4 {
+			font-weight: 200;
+		}
+	}
+
+	&__right {
+		width: stretch;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		margin-right: 0.7rem;
+
+		@include breakpoint-down(medium) {
+			margin: 0rem;
+		}
+	}
+}

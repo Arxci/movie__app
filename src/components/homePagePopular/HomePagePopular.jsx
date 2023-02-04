@@ -15,9 +15,7 @@ const discoverMovie = async (setMovies, signal, discover) => {
 		const movies = await data.json()
 
 		setMovies(movies.results)
-	} catch (err) {
-		console.log(err)
-	}
+	} catch (err) {}
 }
 
 const discoverTv = async (setMovies, signal, discover) => {
@@ -32,9 +30,7 @@ const discoverTv = async (setMovies, signal, discover) => {
 		const movies = await data.json()
 
 		setMovies(movies.results)
-	} catch (err) {
-		console.log(err)
-	}
+	} catch (err) {}
 }
 
 const HomePagePopular = () => {
@@ -67,22 +63,26 @@ const HomePagePopular = () => {
 			discoverMovie(
 				setMovies,
 				signal,
-				'&watch_region=US&with_watch_monetization_types=flatrate'
+				'&watch_region=US&with_watch_monetization_types=flatrate&language=en-US'
 			)
 		} else if (currentTab === 1) {
 			discoverTv(
 				setMovies,
 				signal,
-				'&watch_region=US&with_watch_monetization_types=flatrate'
+				'&watch_region=US&with_watch_monetization_types=flatrate&language=en-US'
 			)
 		} else if (currentTab === 2) {
 			discoverMovie(
 				setMovies,
 				signal,
-				'&watch_region=US&with_watch_monetization_types=rent'
+				'&watch_region=US&with_watch_monetization_types=rent&language=en-US'
 			)
 		} else {
-			discoverMovie(setMovies, signal, '&region=US&with_release_type=3|2')
+			discoverMovie(
+				setMovies,
+				signal,
+				'&region=US&with_release_type=3|2&language=en-US'
+			)
 		}
 
 		return () => {

@@ -1,7 +1,16 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 const HomePageBanner = () => {
+	const [inputValue, setInputValue] = useState('-')
+	const navigate = useNavigate()
+
+	const OnKeyPressed = (e) => {
+		if (e.key === 'Enter') {
+			navigate('/discover/' + e.target.value, { replace: true })
+		}
+	}
+
 	return (
 		<div className="banner">
 			<section className="welcome__wrapper container">
@@ -17,13 +26,19 @@ const HomePageBanner = () => {
 							className="welcome__search__input hide-for-mobile"
 							placeholder="Search for a movie, tv show, person..."
 							type="text"
+							onChange={(e) => setInputValue(e.target.value)}
+							onKeyDown={(e) => OnKeyPressed(e)}
 						/>
 						<input
 							className="welcome__search__input hide-for-desktop"
 							placeholder="Search..."
 							type="text"
+							onChange={(e) => setInputValue(e.target.value)}
+							onKeyDown={(e) => OnKeyPressed(e)}
 						/>
-						<button className="welcome__search__button">Search</button>
+						<Link to={'/discover/' + inputValue}>
+							<button className="welcome__search__button">Search</button>
+						</Link>
 					</div>
 				</div>
 			</section>

@@ -109,13 +109,20 @@ const Search = ({ title, endpoint, genreId, languageId, popularityID }) => {
 	}
 
 	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+
+	useEffect(() => {
 		const controller = new AbortController()
 		const signal = controller.signal
 
 		const getData = async () => {
 			try {
 				const data = await fetch(
-					endpoint + process.env.REACT_APP_API_KEY + '&sort_by=popularity.desc',
+					endpoint +
+						process.env.REACT_APP_API_KEY +
+						'&sort_by=popularity.desc' +
+						'&language=en-US',
 					{ signal }
 				)
 
@@ -123,9 +130,7 @@ const Search = ({ title, endpoint, genreId, languageId, popularityID }) => {
 
 				setFilteredCards(cards.results)
 				setMaxPage(cards.total_pages)
-			} catch (err) {
-				console.log(err)
-			}
+			} catch (err) {}
 		}
 
 		getData()

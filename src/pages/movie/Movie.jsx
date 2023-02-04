@@ -83,10 +83,7 @@ const GetOverview = (card) => {
 
 const GetTitle = (card) => {
 	if (card) {
-		if (card.original_name !== undefined) {
-			return card.original_name
-		}
-		return card.original_title
+		return card.name
 	}
 	return ''
 }
@@ -121,7 +118,7 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint, castEndpoint }) => {
 	const overview = GetOverview(card)
 	const origDate = GetOrigDate(card)
 	const title = GetTitle(card)
-	console.log(card)
+	window.scrollTo(0, 0)
 	const banner = useRef()
 	if (banner.current) {
 		banner.current.style.backgroundImage = 'url(' + bannerImg + ')'
@@ -137,16 +134,15 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint, castEndpoint }) => {
 					cardEndpoint[0] +
 						id +
 						cardEndpoint[1] +
-						process.env.REACT_APP_API_KEY,
+						process.env.REACT_APP_API_KEY +
+						'&language=en-US',
 					{ signal }
 				)
 
 				const newCard = await data.json()
 
 				setCard(newCard)
-			} catch (err) {
-				console.log(err)
-			}
+			} catch (err) {}
 		}
 
 		getData()
@@ -164,7 +160,8 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint, castEndpoint }) => {
 					castEndpoint[0] +
 						id +
 						castEndpoint[1] +
-						process.env.REACT_APP_API_KEY,
+						process.env.REACT_APP_API_KEY +
+						'&language=en-US',
 					{ signal }
 				)
 
@@ -182,9 +179,7 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint, castEndpoint }) => {
 					}
 				})
 				setCast(temp)
-			} catch (err) {
-				console.log(err)
-			}
+			} catch (err) {}
 		}
 
 		getData()
@@ -202,7 +197,8 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint, castEndpoint }) => {
 					releaseDateEndpoint[0] +
 						id +
 						releaseDateEndpoint[1] +
-						process.env.REACT_APP_API_KEY,
+						process.env.REACT_APP_API_KEY +
+						'&language=en-US',
 					{ signal }
 				)
 
@@ -221,9 +217,7 @@ const Movie = ({ cardEndpoint, releaseDateEndpoint, castEndpoint }) => {
 				} else {
 					setCertification('')
 				}
-			} catch (err) {
-				console.log(err)
-			}
+			} catch (err) {}
 		}
 
 		getData()

@@ -41,8 +41,7 @@ const Person = () => {
 	const birthday = GetBirthday(person)
 	const placeOfBirth = GetPlaceOfBirth(person)
 	const { id } = useParams()
-
-	console.log(person)
+	window.scrollTo(0, 0)
 
 	useEffect(() => {
 		const controller = new AbortController()
@@ -60,9 +59,7 @@ const Person = () => {
 
 				const newPerson = await data.json()
 				setPerson(newPerson)
-			} catch (err) {
-				console.log(err)
-			}
+			} catch (err) {}
 		}
 
 		getData()
@@ -81,15 +78,14 @@ const Person = () => {
 						id +
 						'/combined_credits?api_key=' +
 						process.env.REACT_APP_API_KEY +
-						'&sort_by=popularity.desc',
+						'&sort_by=popularity.desc' +
+						'&language=en-US',
 					{ signal }
 				)
 
 				const newMovies = await data.json()
 				setMovies(newMovies.cast)
-			} catch (err) {
-				console.log(err)
-			}
+			} catch (err) {}
 		}
 
 		getData()

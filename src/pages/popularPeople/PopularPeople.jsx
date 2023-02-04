@@ -16,20 +16,17 @@ const fetchPopularPeople = async (setPeople, setNumOfPages, signal, page) => {
 
 		setPeople(people.results)
 		setNumOfPages(people.total_pages)
-	} catch (err) {
-		console.log(err)
-	}
+	} catch (err) {}
 }
 
 const PopularPeople = () => {
 	const [people, setPeople] = useState([])
 	const [numOfPages, setNumOfPages] = useState(0)
 	const [currentPage, setCurrentPage] = useState(0)
-	const itemsPerPage = 20
+	window.scrollTo(0, 0)
 
 	const handlePageClick = (event) => {
-		const newOffset = (event.selected * itemsPerPage) % numOfPages
-		setCurrentPage(newOffset)
+		setCurrentPage(event.selected)
 	}
 
 	useEffect(() => {
@@ -50,24 +47,26 @@ const PopularPeople = () => {
 						<PeopleCard key={person.id} person={person} setWidth={false} />
 					))}
 				</div>
-				<div id="container" className="pagination">
-					<ReactPaginate
-						breakLabel="..."
-						nextLabel={<i className="fa-solid fa-arrow-right"></i>}
-						onPageChange={handlePageClick}
-						pageRangeDisplayed={2}
-						marginPagesDisplayed={1}
-						pageCount={numOfPages}
-						previousLabel={<i className="fa-solid fa-arrow-left"></i>}
-						containerClassName="pagination"
-						previousClassName="previous__link"
-						nextClassName="next__link"
-						previousLinkClassName={'pagination__link'}
-						nextLinkClassName={'pagination__link'}
-						disabledClassName={'pagination__link--disabled'}
-						activeClassName={'pagination__link--active'}
-					/>
-				</div>
+				{numOfPages > 0 && (
+					<div id="container" className="pagination">
+						<ReactPaginate
+							breakLabel="..."
+							nextLabel={<i className="fa-solid fa-arrow-right"></i>}
+							onPageChange={handlePageClick}
+							pageRangeDisplayed={2}
+							marginPagesDisplayed={1}
+							pageCount={numOfPages}
+							previousLabel={<i className="fa-solid fa-arrow-left"></i>}
+							containerClassName="pagination"
+							previousClassName="previous__link"
+							nextClassName="next__link"
+							previousLinkClassName={'pagination__link'}
+							nextLinkClassName={'pagination__link'}
+							disabledClassName={'pagination__link--disabled'}
+							activeClassName={'pagination__link--active'}
+						/>
+					</div>
+				)}
 			</div>
 		</div>
 	)

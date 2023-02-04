@@ -1,0 +1,31 @@
+.footer {
+	background-color: $dark-blue;
+	height: 8rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&__container {
+		width: stretch;
+	}
+
+	&__wrapper {
+		width: max-content;
+		h1 {
+			background: linear-gradient(
+				to right,
+				$lighter-green 20%,
+				$light-green 80%,
+				$light-blue
+			);
+			background-clip: text;
+			color: transparent;
+			margin-left: 0.7rem;
+			font-size: 2rem;
+
+			@include breakpoint-down(medium) {
+				font-size: 1rem;
+			}
+		}
+	}
+}

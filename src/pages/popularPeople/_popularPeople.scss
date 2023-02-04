@@ -33,8 +33,8 @@
 .pagination a {
 	padding: 10px;
 	border-radius: 5px;
-	border: 1px solid $dark-blue;
-	color: $dark-blue;
+	border: 1px solid rgba($light-blue, 0.5);
+	color: $black;
 	cursor: pointer;
 
 	@include breakpoint-down(xsmall) {
@@ -45,7 +45,6 @@
 
 .pagination__link {
 	font-weight: bold;
-	border: 1px solid $dark-blue;
 }
 
 .previous__link,
@@ -57,8 +56,9 @@
 
 .pagination__link--active a {
 	color: $white;
-	background-color: $dark-blue;
-	transition: background-color 300ms ease-in-out, color 300ms ease-in-out;
+	background-color: $light-blue;
+	border: 1px solid $light-blue;
+	transition: background-color 100ms ease-in-out, color 300ms ease-in-out;
 }
 
 .pagination__link--disabled a {
