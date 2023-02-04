@@ -8,6 +8,8 @@ const Search = lazy(() => import('./pages/search/Search'))
 const Movie = lazy(() => import('./pages/movie/Movie'))
 const Person = lazy(() => import('./pages/person/Person'))
 
+console.log('hello')
+
 function App() {
 	return (
 		<div className="app">
