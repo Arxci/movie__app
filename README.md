@@ -1,6 +1,6 @@
 # Movie App
 
-This project leverages the TMDP API
+This project leverages the TMDP API [https://developers.themoviedb.org/3/getting-started/introduction]
 
 ## Available Scripts
 
