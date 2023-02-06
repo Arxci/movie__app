@@ -1,10 +1,10 @@
 # Movie App
 
-This project leverages the TMDP API [https://developers.themoviedb.org/3/getting-started/introduction]
+This project leverages the TMDP API [https://developers.themoviedb.org/3/getting-started/introduction] to create an identical front end website
 
-## Available Scripts
+## Available Pages
 
-In the project directory, you can run:
+The website currently includes functionality for discovery, searching, and deatils of both people and media
 
 ### `npm start`
 
